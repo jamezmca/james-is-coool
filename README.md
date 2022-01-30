@@ -1,2 +1,2 @@
-# james-is-coool
- stock tracker
+# james-is-cool
+ nice

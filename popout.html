@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnList</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body class="w-60 bg-blue-400 text-green-200 shadow px-1">
+    <div class="flex items-center">
+        <div class="flex w-full pt-1">
+            <button id="create-todo"
+                class="flex-1 m-0.5 border border-solid border-white shadow p-0.5 bg-white text-yellow-600 font-bold">
+                new
+            </button>
+            <button id="add-current-tab"
+                class="flex-1 m-0.5 border border-solid border-white shadow p-0.5 bg-white text-yellow-600 font-bold">
+                add tab
+            </button>
+        </div>
+
+    </div>
+    <div id="new-item" class="hidden flex flex-col justify-center text-center">
+        <input type="text" id="text" class="w-full my-0.5 px-1" placeholder="Name" />
+        <input type="text" id="url" class="w-full px-1" placeholder="Link" />
+        <button class=" ">SAVE</button>
+    </div>
+    <ul id="learn-list" class="max-h-80 overflow-auto text-white">
+    </ul>
+    <script src="popout.js"></script>
+</body>
+
+</html>
