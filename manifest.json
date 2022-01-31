@@ -1,14 +1,14 @@
 {
-    "name": "To Learn List",
+    "name": "Stock Tracker",
     "version": "0.02",
-    "description": "Make a browser to learn list",
+    "description": "Pin ur fav stocks",
     "browser_action": {
         "default_title": "Popout HTML",
         "default_popup": "popout.html",
-        "default_icon": "nice.png"
+        "default_icon": "nice.jpeg"
     },
     "icons": {
-        "128": "nice.png"
+        "128": "nice.jpeg"
     },
     "manifest_version": 2,
     "permissions": [

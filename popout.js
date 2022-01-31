@@ -5,7 +5,7 @@ document.querySelector('#create-todo').addEventListener('click', function () {
         let itemName = document.querySelector('#new-item input').value
         let itemUrl = document.querySelector('#new-item input').value
         if (itemName) {
-            let items = localStorage.getItem('learn-items')
+            let items = localStorage.getItem('pinned stocks')
             let itemsArr = JSON.parse(items) != null ? JSON.parse(items) : []
             itemsArr.push({ item: itemName, url: itemUrl })
             saveItems(itemsArr)
@@ -17,30 +17,17 @@ document.querySelector('#create-todo').addEventListener('click', function () {
     })
 })
 
-document.querySelector('#add-current-tab').addEventListener('click', function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
-        let itemName = tab[0].title
-        let itemUrl = tab[0].url
-        if (itemName) {
-            let items = localStorage.getItem('learn-items')
-            let itemsArr = JSON.parse(items) != null ? JSON.parse(items) : []
-            itemsArr.push({ item: itemName, url: itemUrl })
-            saveItems(itemsArr)
-            fetchItems()
-        }
-    })
-})
 
 
 
 
 function saveItems(obj) {
     let string = JSON.stringify(obj.filter(val => val != null))
-    localStorage.setItem('learn-items', string)
+    localStorage.setItem('pinned stocks', string)
 }
 
 function itemDelete(index) {
-    let items = localStorage.getItem('learn-items')
+    let items = localStorage.getItem('pinned stocks')
     let itemsArr = JSON.parse(items) != null ? JSON.parse(items) : []
     document.querySelector('ul li[data-itemIndex="' + index + '"]').remove()
     saveItems(itemsArr.filter((val, i) => i !== index))
@@ -48,7 +35,7 @@ function itemDelete(index) {
 }
 
 function moveUp(index) {
-    let items = localStorage.getItem('learn-items')
+    let items = localStorage.getItem('pinned stocks')
     let itemsArr = JSON.parse(items) != null ? JSON.parse(items) : []
     let temp = itemsArr[index - 1]
     itemsArr[index - 1] = itemsArr[index]
@@ -58,7 +45,7 @@ function moveUp(index) {
 }
 
 function moveDown(index) {
-    let items = localStorage.getItem('learn-items')
+    let items = localStorage.getItem('pinned stocks')
     let itemsArr = JSON.parse(items) != null ? JSON.parse(items) : []
     let temp = itemsArr[index + 1]
     itemsArr[index + 1] = itemsArr[index]
@@ -73,7 +60,7 @@ function fetchItems() {
     itemsList.innerHTML = ''
     let newItemHTML = ''
     try {
-        let items = localStorage.getItem('learn-items')
+        let items = localStorage.getItem('pinned stocks')
         let itemsArr = JSON.parse(items) != null ? JSON.parse(items) : []
         for (let i = 0; i < itemsArr.length; i++) {
             const url = !!itemsArr[i].url ? itemsArr[i].url : '#'
