@@ -106,3 +106,11 @@ function fetchItems() {
 
 fetchItems()
 
+/* 
+data structure
+
+
+
+
+
+*/
